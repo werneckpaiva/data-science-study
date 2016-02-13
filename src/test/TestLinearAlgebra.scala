@@ -91,5 +91,9 @@ class TestLinearAlgebra {
     assertEquals(Map(1->2, 2->3, 3->2, 4->1), v.counter);
   }
 
-  
+  @Test
+  def testVariance() = {
+    val v = List(1, 2, 3, 1, 2, 2, 3, 4)
+    assertEquals(Map(1->2, 2->3, 3->2, 4->1), v.counter);
+  }
 }

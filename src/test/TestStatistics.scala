@@ -43,5 +43,22 @@ class TestStatistics {
     val l = List(5, 3,4)
     assertEquals(2, l.range)
   }
-  
+
+  @Test
+  def testMeanDiff() = {
+    val l = List(5, 3,4)
+    assertEquals(List(1, -1, 0), l.deviantions)
+  }
+
+  @Test
+  def testVariance() = {
+    val l = List(6, 2,4)
+    assertEquals(4, l.variance, 0)
+  }
+
+  @Test
+  def testStdv() = {
+    val l = List(6, 2, 4)
+    assertEquals(2, l.stdv, 0)
+  }
 }
