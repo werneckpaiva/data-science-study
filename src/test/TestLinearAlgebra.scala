@@ -85,4 +85,11 @@ class TestLinearAlgebra {
     assertEquals(6.0, v.distance(w), 0);
   }
 
+  @Test
+  def testCounter() = {
+    val v = List(1, 2, 3, 1, 2, 2, 3, 4)
+    assertEquals(Map(1->2, 2->3, 3->2, 4->1), v.counter);
+  }
+
+  
 }

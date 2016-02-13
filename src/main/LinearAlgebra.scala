@@ -18,6 +18,8 @@ class LinearAlgebraClass[T](v: Traversable[T])(implicit n: Numeric[T]) {
   def magnitude():Double = Math.sqrt(v.square.toDouble)
   def distance(w:Traversable[T]):Double = Math.sqrt((v - w).square.toDouble)
 
+  def counter():Map[T, Int] = v.groupBy(l=>l).map{case (k, e) => k -> e.size}
+
   private def opZipped(f:(T, T)=>T)(w:Traversable[T]): Traversable[T] = for((x,y) <- (v zip w)) yield f(x, y)
 
   def zip(w:Traversable[T]):Traversable[(T, T)] = {

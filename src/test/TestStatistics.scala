@@ -33,8 +33,15 @@ class TestStatistics {
   }
 
   @Test
-  def testMedian_Empty() = {
-    val l:List[Int] = List()
-    assertNull(l.median)
+  def testMode() = {
+    val l = List(1, 2, 3, 2, 2)
+    assertEquals(List(2), l.mode)
   }
+
+  @Test
+  def testRange() = {
+    val l = List(5, 3,4)
+    assertEquals(2, l.range)
+  }
+  
 }
