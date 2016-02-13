@@ -61,4 +61,17 @@ class TestStatistics {
     val l = List(6, 2, 4)
     assertEquals(2, l.stdv, 0)
   }
+
+  @Test
+  def testQuantile75() = {
+    val l = List(2, 3, 5, 1, 8, 7, 9, 6, 10, 4)
+    assertEquals(8, l.quantile(0.75))
+  }
+
+  @Test
+  def testInterquartile() = {
+    val l = List(2, 3, 5, 1, 8, 7, 9, 6, 10, 4)
+    assertEquals(5, l.interquartileRange())
+  }
+  
 }

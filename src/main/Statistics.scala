@@ -10,7 +10,16 @@ class StatisticsClass[T](v: List[T])(implicit n: Numeric[T]) {
   import Statistics._
 
   def mean():Double = if (v.size > 0) v.sumAll.toDouble() / v.size else 0
-  def median():T = { val s = v.sorted; s(v.size / 2) }
+
+  def quantile(p:Double):T = { 
+    val s = v.sorted; 
+    if (p>=1) s.last 
+    else s((v.size * p).toInt)
+  }
+
+  def median():T = v.quantile(0.5)
+
+  def interquartileRange():T = quantile(.75) - quantile(.25)
 
   def mode():List[T] = {
     val vCounter = v.counter
@@ -26,5 +35,7 @@ class StatisticsClass[T](v: List[T])(implicit n: Numeric[T]) {
   }
 
   def variance():Double = v.deviantions.square / (v.size - 1)
+
   def stdv():Double = Math.sqrt(v.variance)
+
 }
